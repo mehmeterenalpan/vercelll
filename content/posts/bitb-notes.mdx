@@ -1,0 +1,17 @@
+---
+title: "Notes on Browser-in-the-Browser (BitB)"
+date: "2024-11-10"
+description: "A quick note set and detection ideas for BitB after reading community research."
+tags: ["phishing","research"]
+published: true
+---
+
+I first read about BITB via community write-ups. A few useful links for context:
+
+- Original write-up by mr.d0x (2022).
+- Various roundups from detection vendors with mitigation notes.
+
+### Defenders: Fast win ideas
+
+1. Watch for iframe-heavy login screens with spoofed chrome graphics.
+2. Educate users to drag auth pop-ups beyond the browser window bounds.

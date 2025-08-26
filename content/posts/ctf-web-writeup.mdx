@@ -1,0 +1,20 @@
+---
+title: "Web Challenge — SQLi + SSTI Chain (Write-up)"
+date: "2025-08-20"
+description: "End-to-end exploitation notes + minimal PoC script."
+tags: ["writeup","ctf","web"]
+published: true
+---
+
+_Solving steps_
+
+1. Identify reflected param with strict length limit.
+2. Use truncated payload and percent-encoding mix to reach sink.
+3. Pivot to SSTI for OS read.
+
+```py
+# PoC fragment
+import requests
+s = requests.Session()
+# ... exploit flow redacted ...
+```
