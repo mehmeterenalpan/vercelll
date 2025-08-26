@@ -1,4 +1,4 @@
-import { allPosts } from "contentlayer/generated";
+import { allPosts } from ".contentlayer/generated";
 import PostCard from "@/components/PostCard";
 
 export const dynamic = 'error';
