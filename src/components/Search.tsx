@@ -15,11 +15,20 @@ export default function Search() {
   const hits = q.length ? fuse.search(q).slice(0, 8).map(h => h.item) : [];
   return (
     <div className="relative">
-      <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search posts..." className="w-full rounded-xl border border-border bg-card/40 px-3 py-2 outline-none focus:ring-2 focus:ring-accent/40" />
+      <input
+        value={q}
+        onChange={e => setQ(e.target.value)}
+        placeholder="Search posts..."
+        className="w-full rounded-xl border border-border bg-card/40 px-3 py-2 outline-none focus:ring-2 focus:ring-accent/40"
+      />
       {q && hits.length > 0 && (
         <div className="absolute mt-2 w-full rounded-xl border border-border bg-card/80 backdrop-blur p-2 space-y-2 z-40">
           {hits.map((it) => (
-            <Link key={it.url} href={it.url} className="block rounded-lg p-2 hover:bg-border/30">
+            <Link
+              key={it.url}
+              href={{ pathname: it.url }}   // <— burada
+              className="block rounded-lg p-2 hover:bg-border/30"
+            >
               <div className="font-medium">{it.title}</div>
               <div className="text-xs text-muted">{it.description}</div>
             </Link>
