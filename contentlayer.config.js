@@ -1,8 +1,10 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import rehypePrettyCode from "rehype-pretty-code";
-import remarkGfm from "remark-gfm";
+// contentlayer.config.js (CommonJS)
+const { defineDocumentType, makeSource } = require("contentlayer/source-files");
+const rehypePrettyCode = require("rehype-pretty-code");
+const remarkGfm = require("remark-gfm");
+const readingTime = require("reading-time");
 
-export const Post = defineDocumentType(() => ({
+const Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `posts/**/*.mdx`,
   contentType: "mdx",
@@ -22,16 +24,20 @@ export const Post = defineDocumentType(() => ({
     url: {
       type: "string",
       resolve: (doc) => `/posts/${doc._raw.flattenedPath.replace(/^posts\//, "")}`
+    },
+    // ---- NEW: readingTime for UI (text, minutes, words) ----
+    readingTime: {
+      type: "json",
+      resolve: (doc) => readingTime(doc.body.raw)
     }
   }
 }));
 
-export default makeSource({
+module.exports = makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
-    // JS dosyasında olduğu için tip uyuşmazlığı kalmaz
     rehypePlugins: [[rehypePrettyCode, { theme: "github-dark-dimmed" }]]
   }
 });
