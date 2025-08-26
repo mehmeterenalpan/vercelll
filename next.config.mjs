@@ -1,7 +1,6 @@
-import { withContentlayer } from "next-contentlayer";
 const nextConfig = {
   output: 'export',
   images: { unoptimized: true },
-  experimental: { typedRoutes: true },
+  experimental: { typedRoutes: true }
 };
-export default withContentlayer(nextConfig);
+export default nextConfig;
