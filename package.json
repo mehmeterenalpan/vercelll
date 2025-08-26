@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
@@ -29,7 +32,8 @@
     "@types/react": "18.2.79",
     "@types/react-dom": "18.2.25",
     "remark-gfm": "4.0.0",
-    "rehype-pretty-code": "0.14.0",
+    "rehype-pretty-code": "0.13.2",
+    "shiki": "0.14.7",
     "@tailwindcss/typography": "0.5.15"
   }
 }
