@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allPosts } from "contentlayer/generated";
+import { allPosts } from ".contentlayer/generated";
 import MDXContent from "@/components/MDXContent";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
