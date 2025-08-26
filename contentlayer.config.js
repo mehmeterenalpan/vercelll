@@ -1,10 +1,10 @@
-// contentlayer.config.js (CommonJS)
-const { defineDocumentType, makeSource } = require("contentlayer/source-files");
-const rehypePrettyCode = require("rehype-pretty-code");
-const remarkGfm = require("remark-gfm");
-const readingTime = require("reading-time");
+// ESM imports
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import rehypePrettyCode from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
+import readingTime from "reading-time";
 
-const Post = defineDocumentType(() => ({
+export const Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `posts/**/*.mdx`,
   contentType: "mdx",
@@ -25,7 +25,6 @@ const Post = defineDocumentType(() => ({
       type: "string",
       resolve: (doc) => `/posts/${doc._raw.flattenedPath.replace(/^posts\//, "")}`
     },
-    // ---- NEW: readingTime for UI (text, minutes, words) ----
     readingTime: {
       type: "json",
       resolve: (doc) => readingTime(doc.body.raw)
@@ -33,7 +32,7 @@ const Post = defineDocumentType(() => ({
   }
 }));
 
-module.exports = makeSource({
+export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
   mdx: {
