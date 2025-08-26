@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { allPosts } from ".contentlayer/generated";
+import { getAllPosts } from "@/lib/posts";
 
 export const dynamic = 'error';
 
-export default function TagsPage() {
+export default async function TagsPage() {
+  const posts = (await getAllPosts()).filter(p => p.published);
   const tagCounts = new Map<string, number>();
-  allPosts.filter(p => p.published).forEach(p => {
-    (p.tags ?? []).forEach(t => tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1));
-  });
+  posts.forEach(p => p.tags.forEach(t => tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1)));
   const tags = Array.from(tagCounts.entries()).sort((a,b) => b[1]-a[1]);
+
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Tags</h1>
