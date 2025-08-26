@@ -9,26 +9,27 @@
     "lint": "next lint",
     "postbuild": "node scripts/postbuild.js"
   },
-  "dependencies": {
-    "next": "14.2.4",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "contentlayer": "0.3.4",
-    "next-contentlayer": "0.3.4",
-    "clsx": "2.1.1",
-    "fuse.js": "7.0.0",
-    "reading-time": "1.5.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "10.4.19",
-    "postcss": "8.4.41",
-    "tailwindcss": "3.4.10",
-    "typescript": "5.6.2",
-    "@types/node": "20.14.12",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
-    "remark-gfm": "4.0.0",
-    "rehype-pretty-code": "0.14.0",
-    "@tailwindcss/typography": "0.5.15"
-  }
+"dependencies": {
+  "next": "13.5.6",
+  "react": "18.2.0",
+  "react-dom": "18.2.0",
+
+  "contentlayer": "0.3.4",
+  "next-contentlayer": "0.3.4",
+
+  "clsx": "2.1.1",
+  "fuse.js": "7.0.0",
+  "reading-time": "1.5.0"
+},
+"devDependencies": {
+  "autoprefixer": "10.4.19",
+  "postcss": "8.4.41",
+  "tailwindcss": "3.4.10",
+  "typescript": "5.6.2",
+  "@types/node": "20.14.12",
+  "@types/react": "18.2.79",
+  "@types/react-dom": "18.2.25",
+  "remark-gfm": "4.0.0",
+  "rehype-pretty-code": "0.14.0",
+  "@tailwindcss/typography": "0.5.15"
 }
